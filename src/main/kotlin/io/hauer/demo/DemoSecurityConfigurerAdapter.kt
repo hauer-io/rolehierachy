@@ -29,7 +29,7 @@ class DemoSecurityConfigurerAdapter : WebSecurityConfigurerAdapter() {
 
     @Bean
     fun roleHierarchy(): RoleHierarchy = RoleHierarchyImpl().apply {
-        setHierarchy("$ROLE_EDITOR > $ROLE_USER and $ROLE_ADMIN > $ROLE_EDITOR")
+        setHierarchy("$ROLE_EDITOR > $ROLE_USER \n $ROLE_ADMIN > $ROLE_EDITOR")
     }
 
     private fun has(role: String): String {
@@ -40,7 +40,7 @@ class DemoSecurityConfigurerAdapter : WebSecurityConfigurerAdapter() {
         private const val ROLE_USER = "ROLE_USER"
         private const val ROLE_EDITOR = "ROLE_EDITOR"
         private const val ROLE_ADMIN = "ROLE_ADMIN"
-        private const val PASSWORD = "password"
+        private const val PASSWORD = "{noop}password"
     }
 
 
